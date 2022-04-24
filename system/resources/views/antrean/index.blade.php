@@ -10,13 +10,13 @@
   <div class="flex justify-around">
     @if(Request()->user()->level1 == 'teller')
     <input type="submit"  value="Refresh Halaman" onClick="document.location.reload(true)">
-      <button onclick="mulai('a',299,'teller',1);" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil teller {{$nomor_antrean_teller_sekarang->kode_antrean}}{{$nomor_antrean_teller_sekarang->nomor_antrean ?? 0}}
+      <button onclick="mulai('{{$nomor_antrean_teller_sekarang_lowercase}}','{{$nomor_antrean_teller_sekarang->nomor_antrean}}','{{$level}}','{{$no_pelayanan}}');" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil teller {{$nomor_antrean_teller_sekarang->kode_antrean}}{{$nomor_antrean_teller_sekarang->nomor_antrean ?? 0}}
         <input type="hidden" id="nomor_antrean_teller_sekarang_panggil" value="{{$nomor_antrean_teller_sekarang->kode_antrean}}{{$nomor_antrean_teller_sekarang->nomor_antrean ?? 0}}"> 
       </button>
       <h1>nomor teler terakhir{{$end_nomor_antrean_teller->kode_antrean}}{{$end_nomor_antrean_teller->end_nomor_antrean}}</h1>
     @elseif(Request()->user()->level1 == 'cs')
-    <input type="submit"  value="Refresh Halaman" onClick="document.location.reload(true)">
-      <button class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil cs {{$nomor_antrean_cs_sekarang->kode_antrean}}{{$nomor_antrean_cs_sekarang->nomor_antrean ?? 0}}
+    <input value="Refresh Halaman" onClick="document.location.reload(true)">
+      <button onclick="mulai('{{$nomor_antrean_cs_sekarang_lowercase}}','{{$nomor_antrean_cs_sekarang->nomor_antrean}}','{{$level}}','{{$no_pelayanan}}');" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil cs {{$nomor_antrean_cs_sekarang->kode_antrean}}{{$nomor_antrean_cs_sekarang->nomor_antrean ?? 0}}
         <input type="hidden" id="nomor_antrean_cs_sekarang_panggil" value="{{$nomor_antrean_cs_sekarang->kode_antrean}}{{$nomor_antrean_cs_sekarang->nomor_antrean ?? 0}}">
       </button>
       <h1>nomor cs terakhir{{$end_nomor_antrean_cs->kode_antrean}}{{$end_nomor_antrean_cs->end_nomor_antrean}}</h1>

@@ -20,6 +20,8 @@ class AntreanController extends Controller
             ->Where('status','menunggu')
             ->first();
         $data['nomor_antrean_cs_sekarang'] = $nomor_antrean_cs_sekarang;
+        $data['nomor_antrean_cs_sekarang_lowercase'] = strtolower($nomor_antrean_cs_sekarang->kode_antrean);
+
 
         $data['end_nomor_antrean_cs'] = DB::table('antrean')
                     ->select('kode_antrean',DB::raw('max(nomor_antrean) AS end_nomor_antrean'))
@@ -35,7 +37,8 @@ class AntreanController extends Controller
             ->Where('status','menunggu')
             ->first();
         $data['nomor_antrean_teller_sekarang'] = $nomor_antrean_teller_sekarang;
-        // dd($data['nomor_antrean_teller_sekarang']->nomor_antrean);
+        $data['nomor_antrean_teller_sekarang_lowercase'] = strtolower($nomor_antrean_teller_sekarang->kode_antrean);
+        // dd($data['nomor_antrean_teller_sekarang_lowercase']);
 
         $data['end_nomor_antrean_teller'] = DB::table('antrean')
                     ->select('kode_antrean',DB::raw('max(nomor_antrean) AS end_nomor_antrean'))
@@ -65,10 +68,9 @@ class AntreanController extends Controller
             ->where('jenis_pelayanan','teller')
             ->where('status','selesai')
             ->first();
-        // dd($data['count_id_antrean']);
         $data['level'] = Auth::user()->level1;
-        // $data['no_pelayanan'] = Auth::user()->no_pelayanan->get();
-        dd($data['level'];
+        $data['no_pelayanan'] = Auth::user()->no_pelayanan;
+
         return view('antrean.index',$data);
     }
 
