@@ -77,7 +77,6 @@ class AntreanController extends Controller
     public function nextNomorAntrean(Request $request, $id_antrean)
     {
         DB::table('antrean')->where('id',$id_antrean)->update([
-                'id_pelayanan'=>$request->id_pelayanan,
                 'jenis_pelayanan'=>$request->jenis_pelayanan,
                 'kode_antrean'=>$request->kode_antrean,
                 'nomor_antrean'=>$request->nomor_antrean,
@@ -94,7 +93,6 @@ class AntreanController extends Controller
     public function store(Request $request)
     {
         $antrean = new Antrean;
-        $antrean->id_pelayanan = request()->id_pelayanan;
         $antrean->nomor_antrean = request()->nomor_antrean;
         $antrean->status = request()->status;
         $antrean->save();
