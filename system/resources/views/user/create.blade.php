@@ -13,7 +13,9 @@
 			<select name="level1" required>
 				<option value="teller">teller</option>
 				<option value="cs">cs</option>
-			</select>
+			</select><br>
+			<label>No Pelayanan</label><input type="number" name="no_pelayanan" required><br>
+
 			<br>
 			<button type="submit">simpan</button>
 		</form>

@@ -15,7 +15,9 @@
 				<option value="admin" @if($data->level1=='admin') selected @endif>admin</option>
 				<option value="teller" @if($data->level1=='teller') selected @endif>teller</option>
 				<option value="cs" @if($data->level1=='cs') selected @endif>cs</option>
-			</select>
+			</select><br>
+			<label>No Pelayanan</label><input type="number" name="no_pelayanan" value="{{$data->no_pelayanan}}"><br>
+
 			<br>
 			<button type="submit">simpan</button>
 		</form>

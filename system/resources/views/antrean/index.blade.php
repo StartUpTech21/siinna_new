@@ -10,7 +10,7 @@
   <div class="flex justify-around">
     @if(Request()->user()->level1 == 'teller')
     <input type="submit"  value="Refresh Halaman" onClick="document.location.reload(true)">
-      <button onclick="mulai('a',12,'teller',1);" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil teller {{$nomor_antrean_teller_sekarang->kode_antrean}}{{$nomor_antrean_teller_sekarang->nomor_antrean ?? 0}}
+      <button onclick="mulai('a',299,'teller',1);" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil teller {{$nomor_antrean_teller_sekarang->kode_antrean}}{{$nomor_antrean_teller_sekarang->nomor_antrean ?? 0}}
         <input type="hidden" id="nomor_antrean_teller_sekarang_panggil" value="{{$nomor_antrean_teller_sekarang->kode_antrean}}{{$nomor_antrean_teller_sekarang->nomor_antrean ?? 0}}"> 
       </button>
       <h1>nomor teler terakhir{{$end_nomor_antrean_teller->kode_antrean}}{{$end_nomor_antrean_teller->end_nomor_antrean}}</h1>
@@ -270,12 +270,14 @@
           //   }, totalwaktu);
           // totalwaktu=totalwaktu+1000;
       }else if(no < 20){
+          var intToStringNo = no.toString();
+          var digitKeDua = intToStringNo.substring(1,2);
           setTimeout(function() {
-              document.getElementById('suarabel1').pause();
-              document.getElementById('suarabel1').currentTime=0;
-              document.getElementById('suarabel1').play();
+              document.getElementById('suarabelloket'+digitKeDua+'').pause();
+              document.getElementById('suarabelloket'+digitKeDua+'').currentTime=0;
+              document.getElementById('suarabelloket'+digitKeDua+'').play();
             }, totalwaktu);
-          totalwaktu=totalwaktu+1000;
+          totalwaktu=totalwaktu+700;
           setTimeout(function() {
               document.getElementById('belas').pause();
               document.getElementById('belas').currentTime=0;
@@ -287,13 +289,35 @@
               document.getElementById('silahkan_ke').currentTime=0;
               document.getElementById('silahkan_ke').play();
             }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabelloket'+loket+'').pause();
-              document.getElementById('suarabelloket'+loket+'').currentTime=0;
-              document.getElementById('suarabelloket'+loket+'').play();
-            }, totalwaktu);
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
+        }else if (pelayanan == "teller") {
+          setTimeout(function() {
+            document.getElementById('teller').pause();
+            document.getElementById('teller').currentTime=0;
+            document.getElementById('teller').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+        }
           // setTimeout(function() {
           //     for (var i = 0 ; i < urut.toString().length; i++) {
           //       $("#suarabel"+i+"").remove();
@@ -301,35 +325,71 @@
           //   }, totalwaktu);
           // totalwaktu=totalwaktu+1000;
       }else if(no < 100){
+          var intToStringNo = no.toString();
+          var digitKeSatu = intToStringNo.substring(0,1);
+          var digitKeDua = intToStringNo.substring(1,2);
           setTimeout(function() {
-              document.getElementById('suarabel0').pause();
-              document.getElementById('suarabel0').currentTime=0;
-              document.getElementById('suarabel0').play();
-            }, totalwaktu);
-          totalwaktu=totalwaktu+1000;
-          setTimeout(function() {
+            document.getElementById('suarabelloket'+digitKeSatu+'').pause();
+            document.getElementById('suarabelloket'+digitKeSatu+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeSatu+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+700;
+          if (digitKeDua == 0) { /*dua puluh*/
+            setTimeout(function() {
               document.getElementById('puluh').pause();
               document.getElementById('puluh').currentTime=0;
               document.getElementById('puluh').play();
             }, totalwaktu);
-          totalwaktu=totalwaktu+1000;
-          setTimeout(function() {
-              document.getElementById('suarabel1').pause();
-              document.getElementById('suarabel1').currentTime=0;
-              document.getElementById('suarabel1').play();
+            totalwaktu=totalwaktu+1000;
+          }else if (digitKeDua != 0) { /*dua puluh satu*/
+            setTimeout(function() {
+              document.getElementById('puluh').pause();
+              document.getElementById('puluh').currentTime=0;
+              document.getElementById('puluh').play();
             }, totalwaktu);
-          totalwaktu=totalwaktu+1000;
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+digitKeDua+'').pause();
+              document.getElementById('suarabelloket'+digitKeDua+'').currentTime=0;
+              document.getElementById('suarabelloket'+digitKeDua+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+          
           setTimeout(function() {
               document.getElementById('silahkan_ke').pause();
               document.getElementById('silahkan_ke').currentTime=0;
               document.getElementById('silahkan_ke').play();
             }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabelloket'+loket+'').pause();
-              document.getElementById('suarabelloket'+loket+'').currentTime=0;
-              document.getElementById('suarabelloket'+loket+'').play();
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
             }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
               for (var i = 0 ; i < urut.toString().length; i++) {
@@ -349,13 +409,36 @@
               document.getElementById('silahkan_ke').currentTime=0;
               document.getElementById('silahkan_ke').play();
             }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabelloket'+loket+'').pause();
-              document.getElementById('suarabelloket'+loket+'').currentTime=0;
-              document.getElementById('suarabelloket'+loket+'').play();
-            }, totalwaktu);
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+
           setTimeout(function() {
               for (var i = 0 ; i < urut.toString().length; i++) {
                 $("#suarabel"+i+"").remove();
@@ -363,6 +446,10 @@
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
       }else if (no < 110) {
+          var intToStringNo = no.toString();
+          var digitKeSatu = intToStringNo.substring(0,1);
+          var digitKeDua = intToStringNo.substring(1,2);
+          var digitKeTiga = intToStringNo.substring(2,3);
           setTimeout(function() {
               document.getElementById('seratus').pause();
               document.getElementById('seratus').currentTime=0;
@@ -370,23 +457,45 @@
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabel2').pause();
-              document.getElementById('suarabel2').currentTime=0;
-              document.getElementById('suarabel2').play();
-            }, totalwaktu);
+            document.getElementById('suarabelloket'+digitKeTiga+'').pause();
+            document.getElementById('suarabelloket'+digitKeTiga+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeTiga+'').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
               document.getElementById('silahkan_ke').pause();
               document.getElementById('silahkan_ke').currentTime=0;
               document.getElementById('silahkan_ke').play();
             }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabelloket'+loket+'').pause();
-              document.getElementById('suarabelloket'+loket+'').currentTime=0;
-              document.getElementById('suarabelloket'+loket+'').play();
-            }, totalwaktu);
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
           setTimeout(function() {
               for (var i = 0 ; i < urut.toString().length; i++) {
                 $("#suarabel"+i+"").remove();
@@ -411,13 +520,35 @@
               document.getElementById('silahkan_ke').currentTime=0;
               document.getElementById('silahkan_ke').play();
             }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabelloket'+loket+'').pause();
-              document.getElementById('suarabelloket'+loket+'').currentTime=0;
-              document.getElementById('suarabelloket'+loket+'').play();
-            }, totalwaktu);
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
           setTimeout(function() {
               for (var i = 0 ; i < urut.toString().length; i++) {
                 $("#suarabel"+i+"").remove();
@@ -442,13 +573,36 @@
               document.getElementById('silahkan_ke').currentTime=0;
               document.getElementById('silahkan_ke').play();
             }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+          
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabelloket'+loket+'').pause();
-              document.getElementById('suarabelloket'+loket+'').currentTime=0;
-              document.getElementById('suarabelloket'+loket+'').play();
-            }, totalwaktu);
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+
           setTimeout(function() {
               for (var i = 0 ; i < urut.toString().length; i++) {
                 $("#suarabel"+i+"").remove();
@@ -456,6 +610,10 @@
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
       }else if (no < 120) {
+          var intToStringNo = no.toString();
+          var digitKeSatu = intToStringNo.substring(0,1);
+          var digitKeDua = intToStringNo.substring(1,2);
+          var digitKeTiga = intToStringNo.substring(2,3);
           setTimeout(function() {
               document.getElementById('seratus').pause();
               document.getElementById('seratus').currentTime=0;
@@ -463,10 +621,10 @@
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabel2').pause();
-              document.getElementById('suarabel2').currentTime=0;
-              document.getElementById('suarabel2').play();
-            }, totalwaktu);
+            document.getElementById('suarabelloket'+digitKeTiga+'').pause();
+            document.getElementById('suarabelloket'+digitKeTiga+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeTiga+'').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
               document.getElementById('belas').pause();
@@ -479,13 +637,36 @@
               document.getElementById('silahkan_ke').currentTime=0;
               document.getElementById('silahkan_ke').play();
             }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabelloket'+loket+'').pause();
-              document.getElementById('suarabelloket'+loket+'').currentTime=0;
-              document.getElementById('suarabelloket'+loket+'').play();
-            }, totalwaktu);
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+
           setTimeout(function() {
               for (var i = 0 ; i < urut.toString().length; i++) {
                 $("#suarabel"+i+"").remove();
@@ -493,6 +674,8 @@
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
       }else if (no == 120) {
+          var intToStringNo = no.toString();
+          var digitKeDua = intToStringNo.substring(1,2);
           setTimeout(function() {
               document.getElementById('seratus').pause();
               document.getElementById('seratus').currentTime=0;
@@ -500,9 +683,9 @@
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabel1').pause();
-              document.getElementById('suarabel1').currentTime=0;
-              document.getElementById('suarabel1').play();
+            document.getElementById('suarabelloket'+digitKeDua+'').pause();
+              document.getElementById('suarabelloket'+digitKeDua+'').currentTime=0;
+              document.getElementById('suarabelloket'+digitKeDua+'').play();
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
@@ -516,13 +699,36 @@
               document.getElementById('silahkan_ke').currentTime=0;
               document.getElementById('silahkan_ke').play();
             }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+          
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabelloket'+loket+'').pause();
-              document.getElementById('suarabelloket'+loket+'').currentTime=0;
-              document.getElementById('suarabelloket'+loket+'').play();
-            }, totalwaktu);
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
+        }else if (pelayanan == "teller") {
+          setTimeout(function() {
+            document.getElementById('teller').pause();
+            document.getElementById('teller').currentTime=0;
+            document.getElementById('teller').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+        }
+
           setTimeout(function() {
               for (var i = 0 ; i < urut.toString().length; i++) {
                 $("#suarabel"+i+"").remove();
@@ -530,30 +736,46 @@
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
       }else if (no < 200) {
+          var intToStringNo = no.toString();
+          var digitKeSatu = intToStringNo.substring(0,1);
+          var digitKeDua = intToStringNo.substring(1,2);
+	        var digitKeTiga = intToStringNo.substring(2,3);
           setTimeout(function() {
               document.getElementById('seratus').pause();
               document.getElementById('seratus').currentTime=0;
               document.getElementById('seratus').play();
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
-          setTimeout(function() {
-              document.getElementById('suarabel1').pause();
-              document.getElementById('suarabel1').currentTime=0;
-              document.getElementById('suarabel1').play();
-            }, totalwaktu);
-          totalwaktu=totalwaktu+1000;
-          setTimeout(function() {
+          if (digitKeTiga == 0) {
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+digitKeDua+'').pause();
+              document.getElementById('suarabelloket'+digitKeDua+'').currentTime=0;
+              document.getElementById('suarabelloket'+digitKeDua+'').play();
+              }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
               document.getElementById('puluh').pause();
               document.getElementById('puluh').currentTime=0;
               document.getElementById('puluh').play();
             }, totalwaktu);
-          totalwaktu=totalwaktu+1000;
-          
-          if (no%10!=0) {
+            totalwaktu=totalwaktu+1000;
+          } else if (digitKeTiga != 0) {
             setTimeout(function() {
-                document.getElementById('suarabel2').pause();
-                document.getElementById('suarabel2').currentTime=0;
-                document.getElementById('suarabel2').play();
+              document.getElementById('suarabelloket'+digitKeDua+'').pause();
+              document.getElementById('suarabelloket'+digitKeDua+'').currentTime=0;
+              document.getElementById('suarabelloket'+digitKeDua+'').play();
+              }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('puluh').pause();
+              document.getElementById('puluh').currentTime=0;
+              document.getElementById('puluh').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+digitKeTiga+'').pause();
+              document.getElementById('suarabelloket'+digitKeTiga+'').currentTime=0;
+              document.getElementById('suarabelloket'+digitKeTiga+'').play();
               }, totalwaktu);
             totalwaktu=totalwaktu+1000;
           }
@@ -563,13 +785,36 @@
               document.getElementById('silahkan_ke').currentTime=0;
               document.getElementById('silahkan_ke').play();
             }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+          
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabelloket'+loket+'').pause();
-              document.getElementById('suarabelloket'+loket+'').currentTime=0;
-              document.getElementById('suarabelloket'+loket+'').play();
-            }, totalwaktu);
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+
           setTimeout(function() {
               for (var i = 0 ; i < urut.toString().length; i++) {
                 $("#suarabel"+i+"").remove();
@@ -577,10 +822,12 @@
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
       }else if (no == 200) {
+          var intToStringNo = no.toString();
+          var digitKeSatu = intToStringNo.substring(0,1);
           setTimeout(function() {
-              document.getElementById('suarabel0').pause();
-              document.getElementById('suarabel0').currentTime=0;
-              document.getElementById('suarabel0').play();
+            document.getElementById('suarabelloket'+digitKeSatu+'').pause();
+            document.getElementById('suarabelloket'+digitKeSatu+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeSatu+'').play();
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
@@ -594,157 +841,456 @@
               document.getElementById('silahkan_ke').currentTime=0;
               document.getElementById('silahkan_ke').play();
             }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabelloket'+loket+'').pause();
-              document.getElementById('suarabelloket'+loket+'').currentTime=0;
-              document.getElementById('suarabelloket'+loket+'').play();
-            }, totalwaktu);
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+
           setTimeout(function() {
               for (var i = 0 ; i < urut.toString().length; i++) {
                 $("#suarabel"+i+"").remove();
               };
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
-      }else if(no < 999){
+      }else if(no < 210){
+        var intToStringNo = no.toString();
+        var digitKeSatu = intToStringNo.substring(0,1);
+	      var digitKeTiga = intToStringNo.substring(2,3);
           setTimeout(function() {
-              document.getElementById('suarabel0').pause();
-              document.getElementById('suarabel0').currentTime=0;
-              document.getElementById('suarabel0').play();
+            document.getElementById('suarabelloket'+digitKeSatu+'').pause();
+            document.getElementById('suarabelloket'+digitKeSatu+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeSatu+'').play();
           }, totalwaktu);
           totalwaktu=totalwaktu+1000;
-          if (no.toString().substr(1,1) == 0 && urut.toString().substr(2,1)==0) { // 200 300 400 ..
-            setTimeout(function() {
-                document.getElementById('ratus').pause();
-                document.getElementById('ratus').currentTime=0;
-                document.getElementById('ratus').play();
-              }, totalwaktu);
-            totalwaktu=totalwaktu+1000;
-          } else if(no.toString().substr(1,1) == 0 && urut.toString().substr(2,1)!=0){ // 201 304 405 506
-            setTimeout(function() {
-                document.getElementById('ratus').pause();
-                document.getElementById('ratus').currentTime=0;
-                document.getElementById('ratus').play();
-              }, totalwaktu);
-            totalwaktu=totalwaktu+1000;
-            setTimeout(function() {
-                document.getElementById('suarabel2').pause();
-                document.getElementById('suarabel2').currentTime=0;
-                document.getElementById('suarabel2').play();
-              }, totalwaktu);
-            totalwaktu=totalwaktu+1000;
-          }else if(no.toString().substr(1,1) != 0 && urut.toString().substr(2,1)==0){ //210 250 230
-            if(no.toString().substr(1,1) == 1){ //210
-              setTimeout(function() {
-                document.getElementById('ratus').pause();
-                document.getElementById('ratus').currentTime=0;
-                document.getElementById('ratus').play();
-              }, totalwaktu);
-              totalwaktu=totalwaktu+1000;
-              setTimeout(function() {
-                document.getElementById('sepuluh').pause();
-                document.getElementById('sepuluh').currentTime=0;
-                document.getElementById('sepuluh').play();
-              }, totalwaktu);
-              totalwaktu=totalwaktu+1000;
-            }else{
-              setTimeout(function() {
-                document.getElementById('ratus').pause();
-                document.getElementById('ratus').currentTime=0;
-                document.getElementById('ratus').play();
-              }, totalwaktu);
-              totalwaktu=totalwaktu+1000;
-              setTimeout(function() {
-                document.getElementById('suarabel1').pause();
-                document.getElementById('suarabel1').currentTime=0;
-                document.getElementById('suarabel1').play();
-              }, totalwaktu);
-              totalwaktu=totalwaktu+1000;
-              setTimeout(function() {
-                document.getElementById('puluh').pause();
-                document.getElementById('puluh').currentTime=0;
-                document.getElementById('puluh').play();
-              }, totalwaktu);
-              totalwaktu=totalwaktu+1000;
-            }
-          }else if(no.toString().substr(1,1) != 0 && urut.toString().substr(2,1)!=0){
-            if (no.toString().substr(1,1)==1) {
-              if (no.toString().substr(2,1)==1) { // 211 311 411 511
-                setTimeout(function() {
-                    document.getElementById('ratus').pause();
-                    document.getElementById('ratus').currentTime=0;
-                    document.getElementById('ratus').play();
-                  }, totalwaktu);
-                totalwaktu=totalwaktu+1000;
-                setTimeout(function() {
-                    document.getElementById('sebelas').pause();
-                    document.getElementById('sebelas').currentTime=0;
-                    document.getElementById('sebelas').play();
-                  }, totalwaktu);
-                totalwaktu=totalwaktu+1000;
-              }else{ //212 215 219
-                setTimeout(function() {
-                    document.getElementById('ratus').pause();
-                    document.getElementById('ratus').currentTime=0;
-                    document.getElementById('ratus').play();
-                  }, totalwaktu);
-                totalwaktu=totalwaktu+1000;
-                setTimeout(function() {
-                    document.getElementById('suarabel2').pause();
-                    document.getElementById('suarabel2').currentTime=0;
-                    document.getElementById('suarabel2').play();
-                  }, totalwaktu);
-                totalwaktu=totalwaktu+1000;
-                setTimeout(function() {
-                    document.getElementById('belas').pause();
-                    document.getElementById('belas').currentTime=0;
-                    document.getElementById('belas').play();
-                  }, totalwaktu);
-                totalwaktu=totalwaktu+1000;
-              }
-            }else{
-              setTimeout(function() {
-                  document.getElementById('ratus').pause();
-                  document.getElementById('ratus').currentTime=0;
-                  document.getElementById('ratus').play();
-                }, totalwaktu);
-              totalwaktu=totalwaktu+1000;
-              setTimeout(function() {
-                  document.getElementById('suarabel1').pause();
-                  document.getElementById('suarabel1').currentTime=0;
-                  document.getElementById('suarabel1').play();
-                }, totalwaktu);
-              totalwaktu=totalwaktu+1000;
-              setTimeout(function() {
-                  document.getElementById('puluh').pause();
-                  document.getElementById('puluh').currentTime=0;
-                  document.getElementById('puluh').play();
-                }, totalwaktu);
-              totalwaktu=totalwaktu+1000;
-              if (no%10!=0) {
-                setTimeout(function() {
-                    document.getElementById('suarabel2').pause();
-                    document.getElementById('suarabel2').currentTime=0;
-                    document.getElementById('suarabel2').play();
-                  }, totalwaktu);
-                totalwaktu=totalwaktu+1000;
-              }
-            }
-          }
-
+          setTimeout(function() {
+            document.getElementById('ratus').pause();
+            document.getElementById('ratus').currentTime=0;
+            document.getElementById('ratus').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+digitKeTiga+'').pause();
+            document.getElementById('suarabelloket'+digitKeTiga+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeTiga+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
           setTimeout(function() {
               document.getElementById('silahkan_ke').pause();
               document.getElementById('silahkan_ke').currentTime=0;
               document.getElementById('silahkan_ke').play();
             }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
           totalwaktu=totalwaktu+1000;
           setTimeout(function() {
-              document.getElementById('suarabelloket'+loket+'').pause();
-              document.getElementById('suarabelloket'+loket+'').currentTime=0;
-              document.getElementById('suarabelloket'+loket+'').play();
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+
+          setTimeout(function() {
+              for (var i = 0 ; i < urut.toString().length; i++) {
+                $("#suarabel"+i+"").remove();
+              };
             }, totalwaktu);
           totalwaktu=totalwaktu+1000;
+      }else if(no == 210){
+          var intToStringNo = no.toString();
+          var digitKeSatu = intToStringNo.substring(0,1);
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+digitKeSatu+'').pause();
+            document.getElementById('suarabelloket'+digitKeSatu+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeSatu+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('ratus').pause();
+            document.getElementById('ratus').currentTime=0;
+            document.getElementById('ratus').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('sepuluh').pause();
+            document.getElementById('sepuluh').currentTime=0;
+            document.getElementById('sepuluh').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+              document.getElementById('silahkan_ke').pause();
+              document.getElementById('silahkan_ke').currentTime=0;
+              document.getElementById('silahkan_ke').play();
+            }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+
+          setTimeout(function() {
+              for (var i = 0 ; i < urut.toString().length; i++) {
+                $("#suarabel"+i+"").remove();
+              };
+            }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+      }else if(no == 211){
+          var intToStringNo = no.toString();
+          var digitKeSatu = intToStringNo.substring(0,1);
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+digitKeSatu+'').pause();
+            document.getElementById('suarabelloket'+digitKeSatu+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeSatu+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('ratus').pause();
+            document.getElementById('ratus').currentTime=0;
+            document.getElementById('ratus').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('sebelas').pause();
+            document.getElementById('sebelas').currentTime=0;
+            document.getElementById('sebelas').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+              document.getElementById('silahkan_ke').pause();
+              document.getElementById('silahkan_ke').currentTime=0;
+              document.getElementById('silahkan_ke').play();
+            }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+
+          setTimeout(function() {
+              for (var i = 0 ; i < urut.toString().length; i++) {
+                $("#suarabel"+i+"").remove();
+              };
+            }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+      }else if(no < 220){
+          var intToStringNo = no.toString();
+          var digitKeSatu = intToStringNo.substring(0,1);
+          var digitKeTiga = intToStringNo.substring(2,3);
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+digitKeSatu+'').pause();
+            document.getElementById('suarabelloket'+digitKeSatu+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeSatu+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('ratus').pause();
+            document.getElementById('ratus').currentTime=0;
+            document.getElementById('ratus').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+digitKeTiga+'').pause();
+            document.getElementById('suarabelloket'+digitKeTiga+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeTiga+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('belas').pause();
+            document.getElementById('belas').currentTime=0;
+            document.getElementById('belas').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+              document.getElementById('silahkan_ke').pause();
+              document.getElementById('silahkan_ke').currentTime=0;
+              document.getElementById('silahkan_ke').play();
+            }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+
+          setTimeout(function() {
+              for (var i = 0 ; i < urut.toString().length; i++) {
+                $("#suarabel"+i+"").remove();
+              };
+            }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+      }else if(no == 220){
+          var intToStringNo = no.toString();
+          var digitKeSatu = intToStringNo.substring(0,1);
+          var digitKeDua = intToStringNo.substring(1,2);
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+digitKeSatu+'').pause();
+            document.getElementById('suarabelloket'+digitKeSatu+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeSatu+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('ratus').pause();
+            document.getElementById('ratus').currentTime=0;
+            document.getElementById('ratus').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+digitKeDua+'').pause();
+            document.getElementById('suarabelloket'+digitKeDua+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeDua+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('puluh').pause();
+            document.getElementById('puluh').currentTime=0;
+            document.getElementById('puluh').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          
+          setTimeout(function() {
+              document.getElementById('silahkan_ke').pause();
+              document.getElementById('silahkan_ke').currentTime=0;
+              document.getElementById('silahkan_ke').play();
+            }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+
+          setTimeout(function() {
+              for (var i = 0 ; i < urut.toString().length; i++) {
+                $("#suarabel"+i+"").remove();
+              };
+            }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+      }else {
+          var intToStringNo = no.toString();
+          var digitKeSatu = intToStringNo.substring(0,1);
+          var digitKeDua = intToStringNo.substring(1,2);
+          var digitKeTiga = intToStringNo.substring(2,3);
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+digitKeSatu+'').pause();
+            document.getElementById('suarabelloket'+digitKeSatu+'').currentTime=0;
+            document.getElementById('suarabelloket'+digitKeSatu+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('ratus').pause();
+            document.getElementById('ratus').currentTime=0;
+            document.getElementById('ratus').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+
+          if (digitKeTiga == 0) {
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+digitKeDua+'').pause();
+              document.getElementById('suarabelloket'+digitKeDua+'').currentTime=0;
+              document.getElementById('suarabelloket'+digitKeDua+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('puluh').pause();
+              document.getElementById('puluh').currentTime=0;
+              document.getElementById('puluh').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          } else if(digitKeTiga != 0 ){
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+digitKeDua+'').pause();
+              document.getElementById('suarabelloket'+digitKeDua+'').currentTime=0;
+              document.getElementById('suarabelloket'+digitKeDua+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('puluh').pause();
+              document.getElementById('puluh').currentTime=0;
+              document.getElementById('puluh').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+digitKeTiga+'').pause();
+              document.getElementById('suarabelloket'+digitKeTiga+'').currentTime=0;
+              document.getElementById('suarabelloket'+digitKeTiga+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+          
+          setTimeout(function() {
+              document.getElementById('silahkan_ke').pause();
+              document.getElementById('silahkan_ke').currentTime=0;
+              document.getElementById('silahkan_ke').play();
+            }, totalwaktu);
+          totalwaktu=totalwaktu+1500;
+
+          if (pelayanan == "cs") {
+          setTimeout(function() {
+            document.getElementById('cs').pause();
+            document.getElementById('cs').currentTime=0;
+            document.getElementById('cs').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          setTimeout(function() {
+            document.getElementById('suarabelloket'+noPelayanan+'').pause();
+            document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+            document.getElementById('suarabelloket'+noPelayanan+'').play();
+          }, totalwaktu);
+          totalwaktu=totalwaktu+1000;
+          }else if (pelayanan == "teller") {
+            setTimeout(function() {
+              document.getElementById('teller').pause();
+              document.getElementById('teller').currentTime=0;
+              document.getElementById('teller').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+            setTimeout(function() {
+              document.getElementById('suarabelloket'+noPelayanan+'').pause();
+              document.getElementById('suarabelloket'+noPelayanan+'').currentTime=0;
+              document.getElementById('suarabelloket'+noPelayanan+'').play();
+            }, totalwaktu);
+            totalwaktu=totalwaktu+1000;
+          }
+
           setTimeout(function() {
               for (var i = 0 ; i < urut.toString().length; i++) {
                 $("#suarabel"+i+"").remove();

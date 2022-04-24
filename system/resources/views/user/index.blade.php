@@ -12,6 +12,7 @@
 			<th>Username</th>
 			<th>Email</th>
 			<th>Level</th>
+			<th>No Pelayanan</th>
 		</tr>
 		@foreach($list_admin as $d)
 		<tr>
@@ -25,6 +26,7 @@
 			<td>{{$d->username}}</td>
 			<td>{{$d->email}}</td>
 			<td>{{$d->level1}}</td>
+			<td>{{$d->no_pelayanan}}</td>
 		</tr>
 		@endforeach
 	</table>

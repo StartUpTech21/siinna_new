@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Antrean;
 use DB;
+use Auth;
+
 class AntreanController extends Controller
 {
     public function index()
@@ -64,6 +66,9 @@ class AntreanController extends Controller
             ->where('status','selesai')
             ->first();
         // dd($data['count_id_antrean']);
+        $data['level'] = Auth::user()->level1;
+        // $data['no_pelayanan'] = Auth::user()->no_pelayanan->get();
+        dd($data['level'];
         return view('antrean.index',$data);
     }
 

@@ -30,6 +30,7 @@ class UserController extends Controller
         $user->email = Request()->email;
         $user->password = bcrypt(request('password'));
         $user->level1 = Request()->level1;
+        $user->no_pelayanan = Request()->no_pelayanan;
         $user->status = Request()->status;
         $user->save();
         
