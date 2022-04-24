@@ -67,10 +67,10 @@
     });
 </script>
 </head>
-<body class="w-full h-screen bg-cover bg-center" style="background-image : url('https://storage.googleapis.com/sinna/bg-siinna.jpg')" onload="setInterval('displayTime()', 1000);">
+<body class="w-full h-screen bg-cover bg-center" style="background-image : url('assets/bg-base.png')" onload="setInterval('displayTime()', 1000);">
     <div class="m-16 grid grid-cols-6 gap-4 place-items-center">
       <div class="my-10 col-start-1 col-end-7">
-        <img class="w-64 my-5" src="{{url('public')}}/assets/logo.png">
+        <img class="w-64 my-5" src="{{url('assets/logo.png')}}">
       </div>
       <div class=" col-start-1 col-end-4 bg-white p-4 rounded-2xl drop-shadow-lg">
         <h1 class="uppercase text-3xl font-bold text-[#0CA49D] text-center">Teller</h1>
