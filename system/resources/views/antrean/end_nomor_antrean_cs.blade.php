@@ -1,1 +1,0 @@
-{{$end_nomor_antrean_cs->kode_antrean}}{{$end_nomor_antrean_cs->end_nomor_antrean ?? 0}}
