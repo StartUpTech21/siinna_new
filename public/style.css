@@ -1,0 +1,10 @@
+body {
+	background-color: red;
+	font-size: 18;
+	padding: 20;
+}
+.hijau {
+	width: 50;
+	height: 50;
+	background-color: green;
+}
