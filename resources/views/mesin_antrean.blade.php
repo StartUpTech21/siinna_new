@@ -1,46 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-
-<body>
-    <button class="btn">Button</button>
-    <button class="btn btn-primary">Button</button>
-    <button class="btn btn-secondary">Button</button>
-    <button class="btn btn-accent">Button</button>
-    <button class="btn btn-ghost">Button</button>
-    <button class="btn btn-link">Button</button>
-
-    <div class="dropdown dropdown-end">
-      <label tabindex="0" class="btn m-1">Click</label>
-      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a>Item 1</a></li>
-        <li><a>Item 2</a></li>
-      </ul>
-    </div>
-</body>
-
-</html>
-
-
-
-
-
-{{-- <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://www.bankbsi.co.id/img/favicon.png">
     <title>Mesin Antrian | Sistem Informasi Nomor Antrian</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">
       function displayTime(){
@@ -133,4 +99,4 @@
       </div>  
     </div>
   </body>
-</html> --}}
+</html>

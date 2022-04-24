@@ -10,10 +10,14 @@
         "production": "mix --production"
     },
     "devDependencies": {
+<<<<<<< HEAD:package.json
         "@tailwindcss/forms": "^0.4.0",
         "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.2",
         "axios": "^0.25",
+=======
+        "axios": "^0.21",
+>>>>>>> parent of e94c13f (Restructure Laravel):system/package.json
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.4.6",

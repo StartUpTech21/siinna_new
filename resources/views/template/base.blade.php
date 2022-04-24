@@ -7,7 +7,7 @@
   @stack('antreanAutoReload')
   <title>SIINNA (Sistem Informasi Nomor Antrean)</title>
   <link rel="icon" href="https://www.bankbsi.co.id/img/favicon.png">
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="{{ url('public/css/fonts_googleapis.css')}}">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
  
