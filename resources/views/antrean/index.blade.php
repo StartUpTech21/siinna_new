@@ -52,30 +52,30 @@
 </div>
 
 <div class="audio">
-  <audio id="in" src="{{url('public/audio/in.mp3')}}"></audio>
-  <audio id="out" src="{{url('public/audio/out.mp3')}}"></audio>
-  <audio id="nomor_antrian" src="{{url('public/audio/nomor_antrian.mp3')}}"></audio> 
-  <audio id="belas" src="{{url('public/audio/belas.mp3')}}"></audio> 
-  <audio id="sebelas" src="{{url('public/audio/sebelas.mp3')}}"></audio> 
-  <audio id="puluh" src="{{url('public/audio/puluh.mp3')}}"></audio> 
-  <audio id="sepuluh" src="{{url('public/audio/sepuluh.mp3')}}"></audio> 
-  <audio id="ratus" src="{{url('public/audio/ratus.mp3')}}"></audio> 
-  <audio id="seratus" src="{{url('public/audio/seratus.mp3')}}"></audio> 
-  <audio id="suarabelloket1" src="{{url('public/audio/1.mp3')}}"></audio> 
-  <audio id="suarabelloket2" src="{{url('public/audio/2.mp3')}}"></audio> 
-  <audio id="suarabelloket3" src="{{url('public/audio/3.mp3')}}"></audio> 
-  <audio id="suarabelloket4" src="{{url('public/audio/4.mp3')}}"></audio> 
-  <audio id="suarabelloket5" src="{{url('public/audio/5.mp3')}}"></audio> 
-  <audio id="suarabelloket6" src="{{url('public/audio/6.mp3')}}"></audio> 
-  <audio id="suarabelloket7" src="{{url('public/audio/7.mp3')}}"></audio> 
-  <audio id="suarabelloket8" src="{{url('public/audio/8.mp3')}}"></audio> 
-  <audio id="suarabelloket9" src="{{url('public/audio/9.mp3')}}"></audio> 
-  <audio id="suarabelloket10" src="{{url('public/audio/sepuluh.mp3')}}"></audio> 
-  <audio id="cs" src="{{url('public/audio/cs.mp3')}}"></audio> 
-  <audio id="teller" src="{{url('public/audio/teller.mp3')}}"></audio> 
-  <audio id="silahkan_ke" src="{{url('public/audio/silahkan_ke.mp3')}}"></audio> 
-  <audio id="a" src="{{url('public/audio/a.mp3')}}"></audio> 
-  <audio id="b" src="{{url('public/audio/b.mp3')}}"></audio> 
+  <audio id="in" src="{{url('audio/in.mp3')}}"></audio>
+  <audio id="out" src="{{url('audio/out.mp3')}}"></audio>
+  <audio id="nomor_antrian" src="{{url('audio/nomor_antrian.mp3')}}"></audio> 
+  <audio id="belas" src="{{url('audio/belas.mp3')}}"></audio> 
+  <audio id="sebelas" src="{{url('audio/sebelas.mp3')}}"></audio> 
+  <audio id="puluh" src="{{url('audio/puluh.mp3')}}"></audio> 
+  <audio id="sepuluh" src="{{url('audio/sepuluh.mp3')}}"></audio> 
+  <audio id="ratus" src="{{url('audio/ratus.mp3')}}"></audio> 
+  <audio id="seratus" src="{{url('audio/seratus.mp3')}}"></audio> 
+  <audio id="suarabelloket1" src="{{url('audio/1.mp3')}}"></audio> 
+  <audio id="suarabelloket2" src="{{url('audio/2.mp3')}}"></audio> 
+  <audio id="suarabelloket3" src="{{url('audio/3.mp3')}}"></audio> 
+  <audio id="suarabelloket4" src="{{url('audio/4.mp3')}}"></audio> 
+  <audio id="suarabelloket5" src="{{url('audio/5.mp3')}}"></audio> 
+  <audio id="suarabelloket6" src="{{url('audio/6.mp3')}}"></audio> 
+  <audio id="suarabelloket7" src="{{url('audio/7.mp3')}}"></audio> 
+  <audio id="suarabelloket8" src="{{url('audio/8.mp3')}}"></audio> 
+  <audio id="suarabelloket9" src="{{url('audio/9.mp3')}}"></audio> 
+  <audio id="suarabelloket10" src="{{url('audio/sepuluh.mp3')}}"></audio> 
+  <audio id="cs" src="{{url('audio/cs.mp3')}}"></audio> 
+  <audio id="teller" src="{{url('audio/teller.mp3')}}"></audio> 
+  <audio id="silahkan_ke" src="{{url('audio/silahkan_ke.mp3')}}"></audio> 
+  <audio id="a" src="{{url('audio/a.mp3')}}"></audio> 
+  <audio id="b" src="{{url('audio/b.mp3')}}"></audio> 
 </div>
 @endsection
 @push('jumlah-antrian')
