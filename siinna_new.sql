@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2022 at 07:19 PM
+-- Generation Time: Apr 24, 2022 at 05:30 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -43,8 +43,33 @@ CREATE TABLE `antrean` (
 --
 
 INSERT INTO `antrean` (`id`, `id_pelayanan`, `jenis_pelayanan`, `kode_antrean`, `nomor_antrean`, `status`, `created_at`, `updated_at`) VALUES
-(187, NULL, 'teller', 'A', 1, 'menunggu', '2022-04-23 15:57:12', '2022-04-23 15:57:12'),
-(188, NULL, 'cs', 'B', 1, 'menunggu', '2022-04-23 15:58:30', '2022-04-23 15:58:30');
+(187, 3, 'teller', 'A', 1, 'selesai', '2022-04-23 15:57:12', '2022-04-23 19:28:55'),
+(188, 4, 'cs', 'B', 1, 'selesai', '2022-04-23 15:58:30', '2022-04-23 19:16:08'),
+(189, 4, 'cs', 'B', 1, 'selesai', '2022-04-23 19:15:54', '2022-04-23 19:16:31'),
+(190, 4, 'cs', 'B', 2, 'selesai', '2022-04-23 19:16:43', '2022-04-23 19:23:27'),
+(191, 4, 'cs', 'B', 3, 'selesai', '2022-04-23 19:23:13', '2022-04-23 19:23:31'),
+(192, 4, 'cs', 'B', 4, 'selesai', '2022-04-23 19:23:39', '2022-04-23 19:23:53'),
+(193, 4, 'cs', 'B', 5, 'selesai', '2022-04-23 19:24:01', '2022-04-23 19:40:03'),
+(194, 3, 'teller', 'A', 1, 'selesai', '2022-04-23 19:24:53', '2022-04-23 19:59:37'),
+(195, 3, 'teller', 'A', 2, 'selesai', '2022-04-23 19:25:02', '2022-04-23 19:59:43'),
+(196, 3, 'teller', 'A', 3, 'selesai', '2022-04-23 19:25:18', '2022-04-23 20:10:14'),
+(197, 3, 'teller', 'A', 4, 'selesai', '2022-04-23 19:28:42', '2022-04-23 20:12:07'),
+(198, 4, 'cs', 'B', 6, 'selesai', '2022-04-23 19:33:09', '2022-04-23 19:40:07'),
+(199, 4, 'cs', 'B', 7, 'selesai', '2022-04-23 19:38:52', '2022-04-23 19:52:45'),
+(200, 4, 'cs', 'B', 8, 'selesai', '2022-04-23 19:39:05', '2022-04-23 19:52:48'),
+(201, 4, 'cs', 'B', 9, 'selesai', '2022-04-23 19:52:28', '2022-04-23 19:53:40'),
+(202, 4, 'cs', 'B', 10, 'selesai', '2022-04-23 19:52:53', '2022-04-23 19:53:45'),
+(203, 4, 'cs', 'B', 11, 'selesai', '2022-04-23 19:53:08', '2022-04-23 20:11:30'),
+(204, 4, 'cs', 'B', 12, 'selesai', '2022-04-23 19:53:19', '2022-04-23 20:11:34'),
+(205, 3, 'teller', 'A', 5, 'selesai', '2022-04-23 20:05:09', '2022-04-23 22:23:43'),
+(206, NULL, 'cs', 'B', 13, 'menunggu', '2022-04-23 20:06:56', '2022-04-23 20:06:56'),
+(207, NULL, 'cs', 'B', 14, 'menunggu', '2022-04-23 20:10:19', '2022-04-23 20:10:19'),
+(208, NULL, 'cs', 'B', 15, 'menunggu', '2022-04-23 20:10:29', '2022-04-23 20:10:29'),
+(209, NULL, 'cs', 'B', 16, 'menunggu', '2022-04-23 20:10:46', '2022-04-23 20:10:46'),
+(210, NULL, 'cs', 'B', 17, 'menunggu', '2022-04-23 20:10:55', '2022-04-23 20:10:55'),
+(211, NULL, 'cs', 'B', 18, 'menunggu', '2022-04-23 20:11:11', '2022-04-23 20:11:11'),
+(212, NULL, 'teller', 'A', 6, 'menunggu', '2022-04-23 20:11:44', '2022-04-23 20:11:44'),
+(213, NULL, 'teller', 'A', 7, 'menunggu', '2022-04-23 20:11:54', '2022-04-23 20:11:54');
 
 -- --------------------------------------------------------
 
@@ -83,6 +108,7 @@ CREATE TABLE `user` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `level1` varchar(255) DEFAULT NULL,
+  `no_pelayanan` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -92,13 +118,13 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `level1`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'teller1.1', 'teller1.1@siinna.id', '$2y$10$CQpKgUkQ5fE8ZYf1E0EYY.aACvPnaCUkxiDTfPfIhQMn.IobAcq/G', 'teller', 1, '2022-02-09 07:36:22', '2022-02-10 04:28:23'),
-(4, 'cs1.1', 'cs1.1@siinna.id', '$2y$10$CQpKgUkQ5fE8ZYf1E0EYY.aACvPnaCUkxiDTfPfIhQMn.IobAcq/G', 'cs', 1, '2022-02-09 07:36:22', '2022-04-23 10:19:19'),
-(12, 'admin1.1', 'admin1.1@siinna.id', '$2y$10$CQpKgUkQ5fE8ZYf1E0EYY.aACvPnaCUkxiDTfPfIhQMn.IobAcq/G', 'admin', 1, '2022-02-09 21:03:54', '2022-04-23 15:10:12'),
-(15, 'teller1.2', 'teller1.2@siinna.id', '$2y$10$CQpKgUkQ5fE8ZYf1E0EYY.aACvPnaCUkxiDTfPfIhQMn.IobAcq/G', 'teller', 1, '2022-02-17 00:53:16', '2022-04-23 15:10:16'),
-(16, 'teller1.3', 'teller1.3@siinna.id', '$2y$10$CQpKgUkQ5fE8ZYf1E0EYY.aACvPnaCUkxiDTfPfIhQMn.IobAcq/G', 'teller', 1, '2022-02-17 00:53:43', '2022-04-23 15:10:19'),
-(17, 'cs1.2', 'cs1.2@siinna.id', '$2y$10$VHcYxwHbtZXbbvtiRd99D.BKAxIz5rRTxmGrk0qFn2mPEbm2AstZu', 'cs', 1, '2022-04-23 10:18:14', '2022-04-23 10:18:14');
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `level1`, `no_pelayanan`, `status`, `created_at`, `updated_at`) VALUES
+(3, 'teller1.1', 'teller1.1@siinna.id', '$2y$10$CQpKgUkQ5fE8ZYf1E0EYY.aACvPnaCUkxiDTfPfIhQMn.IobAcq/G', 'teller', 1, 1, '2022-02-09 07:36:22', '2022-04-24 03:08:06'),
+(4, 'cs1.1', 'cs1.1@siinna.id', '$2y$10$CQpKgUkQ5fE8ZYf1E0EYY.aACvPnaCUkxiDTfPfIhQMn.IobAcq/G', 'cs', 1, 1, '2022-02-09 07:36:22', '2022-04-24 03:08:04'),
+(12, 'admin1.1', 'admin1.1@siinna.id', '$2y$10$CQpKgUkQ5fE8ZYf1E0EYY.aACvPnaCUkxiDTfPfIhQMn.IobAcq/G', 'admin', NULL, 1, '2022-02-09 21:03:54', '2022-04-24 03:08:12'),
+(15, 'teller1.2', 'teller1.2@siinna.id', '$2y$10$CQpKgUkQ5fE8ZYf1E0EYY.aACvPnaCUkxiDTfPfIhQMn.IobAcq/G', 'teller', 2, 1, '2022-02-17 00:53:16', '2022-04-24 03:08:15'),
+(16, 'teller1.3', 'teller1.3@siinna.id', '$2y$10$CQpKgUkQ5fE8ZYf1E0EYY.aACvPnaCUkxiDTfPfIhQMn.IobAcq/G', 'teller', 3, 1, '2022-02-17 00:53:43', '2022-04-24 03:08:17'),
+(19, 'cs1.2', 'cs1.2@siinna.id', '$2y$10$qlBgHLG0Pz8TucUCYhDNOe150qs37yySVBluGpYXJHOX5n32NrpMe', 'cs', 2, 1, '2022-04-23 20:29:38', '2022-04-23 20:29:38');
 
 --
 -- Indexes for dumped tables
@@ -130,19 +156,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `antrean`
 --
 ALTER TABLE `antrean`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
 
 --
 -- AUTO_INCREMENT for table `pelayanan`
 --
 ALTER TABLE `pelayanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
