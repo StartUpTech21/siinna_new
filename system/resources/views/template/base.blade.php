@@ -97,7 +97,7 @@
 <!-- Bootstrap Switch -->
 <!-- <script src="{{ url('public/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script> -->
 
-<script>
+<!-- <script>
 	$(".table-datatable").DataTable();
 	  $(function () {
 	    $('.select2').select2()
@@ -108,7 +108,7 @@
 	      $(this).bootstrapSwitch('state', $(this).prop('checked'));
 	    });
 	  })
-</script>
+</script> -->
   @stack('jumlah-antrian')
 </body>
 </html>

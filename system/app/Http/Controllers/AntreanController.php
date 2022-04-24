@@ -33,6 +33,7 @@ class AntreanController extends Controller
             ->Where('status','menunggu')
             ->first();
         $data['nomor_antrean_teller_sekarang'] = $nomor_antrean_teller_sekarang;
+        // dd($data['nomor_antrean_teller_sekarang']->nomor_antrean);
 
         $data['end_nomor_antrean_teller'] = DB::table('antrean')
                     ->select('kode_antrean',DB::raw('max(nomor_antrean) AS end_nomor_antrean'))
