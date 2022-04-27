@@ -5,38 +5,43 @@
   <!-- endif -->
 @endpush
 @section('content')
-<div class="flex">
-    <div class="">
+<div class="flex justify-around m-10">
+    <div class="mx-16">
     @if(Request()->user()->level1 == 'teller')
       <!-- panggil -->
-      <button onclick="mulai('{{$nomor_antrean_teller_sekarang_lowercase}}','{{$nomor_antrean_teller_sekarang->nomor_antrean}}','{{$level}}','{{$no_pelayanan}}');" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil teller {{$nomor_antrean_teller_sekarang->kode_antrean}}{{$nomor_antrean_teller_sekarang->nomor_antrean ?? 0}}</p>
-      </button>
-
-      <!-- refresh -->
-      <button onClick="document.location.reload(true)" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">Refresh Halaman</button>
-
+      <p class="text-2xl text-center font-semibold">Nomor Antrian CS Sekarang</p>
+      <p class="text-8xl font-bold text-center my-5">{{$nomor_antrean_teller_sekarang->kode_antrean}}{{$nomor_antrean_teller_sekarang->nomor_antrean ?? 0}}</p>
+      <div class="flex mt-10 justify-center">
+        <button onclick="mulai('{{$nomor_antrean_teller_sekarang_lowercase}}','{{$nomor_antrean_teller_sekarang->nomor_antrean}}','{{$level}}','{{$no_pelayanan}}');" class="text-2xl px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil teller {{$nomor_antrean_teller_sekarang->kode_antrean}}{{$nomor_antrean_teller_sekarang->nomor_antrean ?? 0}}</p></button>
+        <!-- refresh -->
+        <button onClick="document.location.reload(true)" class="p-3 bg-base-100 border-2 rounded-2xl uppercase mx-2 text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><img src="{{asset('images/refresh.png')}}" alt="Refresh" class="h-6"></button>
+      </div>
       <!-- terakhir -->
-      <button class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">Nomor TELLER terakhir{{$end_nomor_antrean_teller->kode_antrean}}{{$end_nomor_antrean_teller->end_nomor_antrean}}</button>
+      {{-- <button class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">Nomor TELLER terakhir {{$end_nomor_antrean_teller->kode_antrean}}{{$end_nomor_antrean_teller->end_nomor_antrean}}</button> --}}
 
 
     @elseif(Request()->user()->level1 == 'cs')
+    <div>
       <!-- panggil -->
-      <button onclick="mulai('{{$nomor_antrean_cs_sekarang_lowercase}}','{{$nomor_antrean_cs_sekarang->nomor_antrean}}','{{$level}}','{{$no_pelayanan}}');" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil cs {{$nomor_antrean_cs_sekarang->kode_antrean}}{{$nomor_antrean_cs_sekarang->nomor_antrean ?? 0}}</p>
-      </button>
-
+      <p class="text-2xl text-center font-semibold">Nomor Antrian CS Sekarang</p>
+      <p class="text-8xl font-bold text-center my-5">{{$nomor_antrean_cs_sekarang->kode_antrean}}{{$nomor_antrean_cs_sekarang->nomor_antrean ?? 0}}</p>
+      <div class="flex mt-10 justify-center">
+        <button onclick="mulai('{{$nomor_antrean_cs_sekarang_lowercase}}','{{$nomor_antrean_cs_sekarang->nomor_antrean}}','{{$level}}','{{$no_pelayanan}}');" class="text-2xl px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil cs {{$nomor_antrean_cs_sekarang->kode_antrean}}{{$nomor_antrean_cs_sekarang->nomor_antrean ?? 0}}</p></button>
       <!-- refresh -->
-      <button onClick="document.location.reload(true)" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">Refresh Halaman</button>
-      
-
+      <button onClick="document.location.reload(true)" class="p-3 bg-base-100 border-2 rounded-2xl uppercase mx-2 text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><img src="{{asset('images/refresh.png')}}" alt="Refresh" class="h-6"></button>      
+      </div>
+    </div>
       <!-- terakhir -->
-      <button class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">Nomor CS terakhir {{$end_nomor_antrean_cs->kode_antrean}}{{$end_nomor_antrean_cs->end_nomor_antrean}}</button>
+      {{-- <button class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">Nomor CS terakhir {{$end_nomor_antrean_cs->kode_antrean}}{{$end_nomor_antrean_cs->end_nomor_antrean}}</button> --}}
     @endif
     </div>
 
 
-    <div class="">
+    <div class="mx-16">
       @if(Request()->user()->level1 == 'teller')
-        <form action="{{url('teller/antrean',$nomor_antrean_teller_sekarang->id)}}" method="post">
+      <p class="text-2xl text-center font-semibold">Nomor Antrian CS Selanjutnya</p>
+      <p class="text-8xl font-bold text-center my-5">{{$nomor_antrean_teller_sekarang->kode_antrean}}{{$nomor_antrean_teller_sekarang->nomor_antrean ?? 0}}</p>
+      <form action="{{url('teller/antrean',$nomor_antrean_teller_sekarang->id)}}" method="post" class="text-center mt-10">
           @csrf
           @method("PUT")
           <input type="hidden" name="id" value="{{$nomor_antrean_teller_sekarang->id}}">
@@ -45,10 +50,12 @@
           <input type="hidden" name="kode_antrean" value="{{$nomor_antrean_teller_sekarang->kode_antrean}}">
           <input type="hidden" name="nomor_antrean" value="{{$nomor_antrean_teller_sekarang->nomor_antrean}}">
           <input type="hidden" name="status" value="selesai">
-        <button type="submit" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">selanjutnya</button>
+        <button type="submit" class="text-2xl px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">selanjutnya</button>
         </form>
       @elseif(Request()->user()->level1 == 'cs')
-      <form action="{{url('cs/antrean',$nomor_antrean_cs_sekarang->id)}}" method="post">
+      <p class="text-2xl text-center font-semibold">Nomor Antrian CS Selanjutnya</p>
+      <p class="text-8xl font-bold text-center my-5">{{$nomor_antrean_cs_sekarang->kode_antrean}}{{$nomor_antrean_cs_sekarang->nomor_antrean ?? 0}}</p>
+      <form action="{{url('cs/antrean',$nomor_antrean_cs_sekarang->id)}}" method="post" class="text-center mt-10">
         @csrf
         @method("PUT")
         <input type="hidden" name="id" value="{{$nomor_antrean_cs_sekarang->id}}">
@@ -57,7 +64,7 @@
         <input type="hidden" name="kode_antrean" value="{{$nomor_antrean_cs_sekarang->kode_antrean}}">
         <input type="hidden" name="nomor_antrean" value="{{$nomor_antrean_cs_sekarang->nomor_antrean}}">
         <input type="hidden" name="status" value="selesai">
-        <button type="submit" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">selanjutnya</button>
+        <button type="submit" class="text-2xl px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">selanjutnya</button>
       </form>
       @endif
     </div>
