@@ -33,6 +33,7 @@
             </div>
         </footer>
     </div>
+  @stack('jumlah-antrian')
 </body>
 
 
@@ -151,6 +152,5 @@
 	    });
 	  })
 </script> -->
-  @stack('jumlah-antrian')
 </body>
 </html> --}}
