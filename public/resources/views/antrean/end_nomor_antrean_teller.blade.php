@@ -1,1 +1,0 @@
-{{$nomor_antrean_teller_sekarang->kode_antrean}}{{$nomor_antrean_teller_sekarang->nomor_antrean ?? 0}}

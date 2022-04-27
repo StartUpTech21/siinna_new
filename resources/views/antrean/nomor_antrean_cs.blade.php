@@ -1,1 +1,0 @@
-{{$nomor_antrean_cs_sekarang->kode_antrean}}{{$nomor_antrean_cs_sekarang->nomor_antrean ?? 0}}
