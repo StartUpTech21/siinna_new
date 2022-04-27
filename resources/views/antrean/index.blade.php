@@ -7,25 +7,33 @@
 @section('content')
 <div class="flex">
     <div class="">
-      @if(Request()->user()->level1 == 'teller')
+    @if(Request()->user()->level1 == 'teller')
       <!-- panggil -->
       <button onclick="mulai('{{$nomor_antrean_teller_sekarang_lowercase}}','{{$nomor_antrean_teller_sekarang->nomor_antrean}}','{{$level}}','{{$no_pelayanan}}');" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil teller {{$nomor_antrean_teller_sekarang->kode_antrean}}{{$nomor_antrean_teller_sekarang->nomor_antrean ?? 0}}</p>
       </button>
+
       <!-- refresh -->
       <button onClick="document.location.reload(true)" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">Refresh Halaman</button>
+
       <!-- terakhir -->
       <button class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">Nomor TELLER terakhir{{$end_nomor_antrean_teller->kode_antrean}}{{$end_nomor_antrean_teller->end_nomor_antrean}}</button>
 
 
-      @elseif(Request()->user()->level1 == 'cs')
-      <input value="Refresh Halaman" onClick="document.location.reload(true)">
-        <button onclick="mulai('{{$nomor_antrean_cs_sekarang_lowercase}}','{{$nomor_antrean_cs_sekarang->nomor_antrean}}','{{$level}}','{{$no_pelayanan}}');" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil cs {{$nomor_antrean_cs_sekarang->kode_antrean}}{{$nomor_antrean_cs_sekarang->nomor_antrean ?? 0}}</p>
-        </button>
-        <h1>Nomor CS terakhir{{$end_nomor_antrean_cs->kode_antrean}}{{$end_nomor_antrean_cs->end_nomor_antrean}}</h1>
-      @endif
+    @elseif(Request()->user()->level1 == 'cs')
+      <!-- panggil -->
+      <button onclick="mulai('{{$nomor_antrean_cs_sekarang_lowercase}}','{{$nomor_antrean_cs_sekarang->nomor_antrean}}','{{$level}}','{{$no_pelayanan}}');" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><p>panggil cs {{$nomor_antrean_cs_sekarang->kode_antrean}}{{$nomor_antrean_cs_sekarang->nomor_antrean ?? 0}}</p>
+      </button>
+
+      <!-- refresh -->
+      <button onClick="document.location.reload(true)" class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">Refresh Halaman</button>
+      
+
+      <!-- terakhir -->
+      <button class="px-6 py-3 bg-[#F9AD3C] rounded-2xl text-white uppercase mx-auto text-md font-semibold shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">Nomor CS terakhir {{$end_nomor_antrean_cs->kode_antrean}}{{$end_nomor_antrean_cs->end_nomor_antrean}}</button>
+    @endif
     </div>
 
-    
+
     <div class="">
       @if(Request()->user()->level1 == 'teller')
         <form action="{{url('teller/antrean',$nomor_antrean_teller_sekarang->id)}}" method="post">
